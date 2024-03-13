@@ -25,6 +25,7 @@ async function run() {
 		let job = access_context('job');
 		let steps = access_context('steps');
 		let needs = access_context('needs');
+		let notification_summary = access_context('notification-summary')
 
 		let overwrite = core.getInput('overwrite');
 		let raw = core.getInput('raw');
@@ -48,7 +49,8 @@ async function run() {
 					job,
 					steps,
 					needs,
-					overwrite
+					overwrite,
+					notification_summary
 				}
 			);
 		} else {

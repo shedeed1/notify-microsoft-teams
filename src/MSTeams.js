@@ -129,7 +129,8 @@ class MSTeams {
 			job = { status: 'unknown' },
 			steps = {},
 			needs = {},
-			overwrite = ''
+			overwrite = '',
+			notification_summary = '',
 		}
 	) {
 		const steps_summary = summary_generator(steps, 'outcome');
@@ -157,7 +158,7 @@ class MSTeams {
 			correlationId: sha,
 			themeColor: color,
 			title: `${sender.login} ${eventName} initialised workflow "${workflow}"`,
-			summary: repository_link,
+			summary: notification_summary,
 			sections,
 			potentialAction: [
 				{
