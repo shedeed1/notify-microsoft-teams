@@ -25181,11 +25181,11 @@ async function run() {
 		let job = access_context('job');
 		let steps = access_context('steps');
 		let needs = access_context('needs');
-    let notification_summary = access_context('notification-summary')
 
 		let overwrite = core.getInput('overwrite');
 		let raw = core.getInput('raw');
 		let dry_run = core.getInput('dry_run');
+    let notification_summary = core.getInput('notification-summary');
 
 		core.info(`Parsed params:\n${JSON.stringify({
 			webhook_url: '***',

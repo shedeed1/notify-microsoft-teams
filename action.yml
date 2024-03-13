@@ -23,6 +23,9 @@ inputs:
   dry_run:
     description: 'Do not actually send the message'
     required: false
+  notification-summary:
+    description: 'Notification summary (appears in notifications)'
+    required: false
 runs:
   using: 'node16'
   main: 'dist/index.js'
