@@ -1374,7 +1374,8 @@ class MSTeams {
 			job = { status: 'unknown' },
 			steps = {},
 			needs = {},
-			overwrite = ''
+			overwrite = '',
+      notification_summary = '',
 		}
 	) {
 		const steps_summary = summary_generator(steps, 'outcome');
@@ -1402,7 +1403,7 @@ class MSTeams {
 			correlationId: sha,
 			themeColor: color,
 			title: `${sender.login} ${eventName} initialised workflow "${workflow}"`,
-			summary: repository_link,
+			summary: notification_summary,
 			sections,
 			potentialAction: [
 				{
@@ -25180,6 +25181,7 @@ async function run() {
 		let job = access_context('job');
 		let steps = access_context('steps');
 		let needs = access_context('needs');
+    let notification_summary = access_context('notification-summary')
 
 		let overwrite = core.getInput('overwrite');
 		let raw = core.getInput('raw');
@@ -25203,7 +25205,8 @@ async function run() {
 					job,
 					steps,
 					needs,
-					overwrite
+					overwrite,
+          notification_summary
 				}
 			);
 		} else {
